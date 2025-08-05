@@ -18,8 +18,9 @@ const AddDepartment = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/department/add",
+        "http://localhost:3000/api/department/adddep",
         department,
+        
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -29,6 +30,7 @@ const AddDepartment = () => {
 
       if (response.data.success) {
         navigate('/admin-dashboard/departmentList'); 
+        alert("Department added successfully");
       }
 
     } catch (err) {

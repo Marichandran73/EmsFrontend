@@ -12,6 +12,9 @@ import RoleBasedRoute from "./pages/utils/RoleBasedRoute";
 import AdminSummary from "./components/Dashboard/AdminSummary";
 import DepartmentList from './components/Department/DepartmentList';
 import AddDepartment from './components/Department/AddDepartment';
+import EditDepartment from './components/Department/EditDepartment';
+import EmployeeList from './components/Employee/EmployeeList';
+import AddEmployee from './components/Employee/AddEmployee';
 
 import Login from "./pages/Login";
 import "./index.css";
@@ -35,6 +38,9 @@ function App() {
   <Route index element={<AdminSummary />} />
   <Route path="/admin-dashboard/departmentList" element={<DepartmentList />} />
   <Route path="/admin-dashboard/Add-department" element={<AddDepartment />} />
+  <Route path="/admin-dashboard/department/:id" element={<EditDepartment />} />
+  <Route path="/admin-dashboard/employee" element={<EmployeeList />} />
+  <Route path="/admin-dashboard/add-employee" element={<AddEmployee />} />
 </Route>
  <Route path="/employe-dashboard" element={<EmployeDashboard />} />
         </Routes>

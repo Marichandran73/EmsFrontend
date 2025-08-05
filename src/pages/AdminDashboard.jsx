@@ -3,7 +3,7 @@ import '../assets/css/Style.css'
 import { useAuth } from '../context/authContext';
 import AdminSidebar from '../components/Dashboard/AdminSidebar';
 import NavBars from '../components/Dashboard/NavBars';
-// import AdminSummary from '../components/Dashboard/AdminSummary';
+
 import { Outlet } from "react-router-dom";
 
 const AdminDashboard = () => {

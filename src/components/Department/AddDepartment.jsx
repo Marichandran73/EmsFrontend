@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const AddDepartment = () => {
   const navigate = useNavigate(); // This must be inside the component
@@ -14,25 +14,25 @@ const AddDepartment = () => {
     setDepartment({ ...department, [name]: value });
   };
 
-  const handleSubmit = async (e) => {  // Fixed async arrow function syntax
+  const handleSubmit = async (e) => {
+    // Fixed async arrow function syntax
     e.preventDefault();
     try {
       const response = await axios.post(
         "http://localhost:3000/api/department/adddep",
         department,
-        
+
         {
           headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`
-          }
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
         }
       );
 
       if (response.data.success) {
-        navigate('/admin-dashboard/departmentList'); 
+        navigate("/admin-dashboard/departmentList");
         alert("Department added successfully");
       }
-
     } catch (err) {
       if (err.response && !err.response.data.success) {
         alert(err.response.data.error);
@@ -42,11 +42,16 @@ const AddDepartment = () => {
 
   return (
     <>
-      <h1 className="text-2xl mt-10 font-bold mb-6 text-gray-800">Add Department</h1>
+      <h1 className="text-2xl mt-10 font-bold mb-6 text-gray-800">
+        Add Department
+      </h1>
       <div className="max-w-xl mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
         <form className="space-y-5" onSubmit={handleSubmit}>
           <div>
-            <label className="block text-gray-700 font-medium mb-2" htmlFor="department-name">
+            <label
+              className="block text-gray-700 font-medium mb-2"
+              htmlFor="department-name"
+            >
               Department Name
             </label>
             <input
@@ -61,7 +66,10 @@ const AddDepartment = () => {
           </div>
 
           <div>
-            <label className="block text-gray-700 font-medium mb-2" htmlFor="description">
+            <label
+              className="block text-gray-700 font-medium mb-2"
+              htmlFor="description"
+            >
               Description
             </label>
             <textarea

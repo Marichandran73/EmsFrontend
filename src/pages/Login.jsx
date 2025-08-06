@@ -22,10 +22,10 @@ const Login = () => {
         if(response.data.success){
           login(response.data.token);
           localStorage.setItem('token',response.data.token);
-          if(response.data.user.role ==='admin'){
+          if(response.data.user.role ==='Admin'){
             navigate('/admin-dashboard');
           }else{
-            navigate('/employe-dashboard');
+            navigate('/login');
           }
     
           setEmail('');

@@ -7,7 +7,7 @@ import { IoSettings } from "react-icons/io5";
 
 const links = [
   { to: '/admin-dashboard', label: 'Dashboard', icon: <FaTachometerAlt /> },
-  { to: '/admin-dashboard/employee', label: 'Employee', icon: <FaUsers /> },
+  { to: '/admin-dashboard/EmployeeList', label: 'Employee', icon: <FaUsers /> },
   { to: '/admin-dashboard/departmentList', label: 'Department', icon: <FaBuilding /> },
   { to: '/leave', label: 'Leave', icon: <GiInterleavedArrows /> },
   { to: '/salary', label: 'Salary', icon: <CiMoneyCheck1 /> },

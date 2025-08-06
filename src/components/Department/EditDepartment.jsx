@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { useParams, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { useParams, useNavigate } from "react-router-dom";
 
 const EditDepartment = () => {
   const { id } = useParams();
@@ -12,12 +12,15 @@ const EditDepartment = () => {
     const fetchDepartment = async () => {
       setDepLoading(true);
       try {
-        const response = await axios.get(`http://localhost:3000/api/department/${id}`, {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
-          },
-        });
-        console.log(response.data);
+        const response = await axios.get(
+          `http://localhost:3000/api/department/${id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
+        );
+
         if (response.data.success) {
           setDepartment(response.data.department);
         } else {
@@ -33,7 +36,7 @@ const EditDepartment = () => {
     };
 
     fetchDepartment();
-  }, [id]);
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -43,42 +46,56 @@ const EditDepartment = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.put(`http://localhost:3000/api/department/${id}`, department, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`,
-        },
-      });
+      const response = await axios.put(
+        `http://localhost:3000/api/department/${id}`,
+        department,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
 
       if (response.data.success) {
-        alert('Department updated successfully!');
-        navigate('/admin-dashboard/departmentList');
+        alert("Department updated successfully!");
+        navigate("/admin-dashboard/departmentList");
       } else {
         alert(response.data.message);
       }
     } catch (error) {
-      alert('Error updating department');
-      console.error(error);
+      alert("Error updating department");
+      // console.error(error);
     }
   };
 
   return (
     <>
       {deploading ? (
-        <div>Loading...</div>
+        <div className="flex justify-center items-center mt-20">
+          <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-blue-500 border-solid"></div>
+          <span className="ml-4 text-gray-600 text-lg font-medium">
+            Loading...
+          </span>
+        </div>
       ) : (
         <>
-          <h1 className="text-2xl mt-10 font-bold mb-6 text-gray-800">Edit Department</h1>
+          <h1 className="text-2xl mt-10 font-bold mb-6 text-gray-800">
+            Edit Department
+          </h1>
           <div className="max-w-xl mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
             <form className="space-y-5" onSubmit={handleSubmit}>
               <div>
-                <label className="block text-gray-700 font-medium mb-2" htmlFor="department-name">
+                <label
+                  className="block text-gray-700 font-medium mb-2"
+                  htmlFor="department-name"
+                >
                   Department Name
                 </label>
                 <input
                   type="text"
                   id="department-name"
                   name="departmentName"
-                  value={department.departmentName || ''}
+                  value={department.departmentName || ""}
                   placeholder="Enter department name"
                   onChange={handleChange}
                   required
@@ -87,13 +104,16 @@ const EditDepartment = () => {
               </div>
 
               <div>
-                <label className="block text-gray-700 font-medium mb-2" htmlFor="description">
+                <label
+                  className="block text-gray-700 font-medium mb-2"
+                  htmlFor="description"
+                >
                   Description
                 </label>
                 <textarea
                   id="description"
                   name="description"
-                  value={department.description || ''}
+                  value={department.description || ""}
                   placeholder="Enter description here"
                   onChange={handleChange}
                   rows="4"

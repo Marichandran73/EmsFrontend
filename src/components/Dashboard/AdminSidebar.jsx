@@ -10,7 +10,7 @@ const links = [
   { to: '/admin-dashboard/EmployeeList', label: 'Employee', icon: <FaUsers /> },
   { to: '/admin-dashboard/departmentList', label: 'Department', icon: <FaBuilding /> },
   { to: '/leave', label: 'Leave', icon: <GiInterleavedArrows /> },
-  { to: '/salary', label: 'Salary', icon: <CiMoneyCheck1 /> },
+  { to: '/admin-dashboard/Add-Salary', label: 'Salary', icon: <CiMoneyCheck1 /> },
   { to: '/settings', label: 'Settings', icon: <IoSettings /> },
 ];
 

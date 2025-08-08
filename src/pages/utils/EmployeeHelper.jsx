@@ -23,6 +23,29 @@ export const fetchDepartments = async () => {
       return department;
     };
 
+
+export const GetEmployee = async (id) => {
+  let employees;
+  try {
+    const response = await axios.get(`http://localhost:3000/api/employee/department/${id}`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    });
+
+    if (response.data.success) {
+      employees = response.data.employee; 
+    }
+  } catch (err) {
+    if (err.response && !err.response.data.success) {
+      alert(err.response.data.message); 
+    
+    }
+  }
+  return employees;
+};
+
+
 export const EmployeeButton = ({ id }) => {
   const navigate = useNavigate();
 
@@ -38,7 +61,9 @@ export const EmployeeButton = ({ id }) => {
       onClick={()=> navigate(`/admin-dashboard/employee/Edit/${id}`)}>
         Edit
       </button>
-      <button className="h-10 px-4 rounded bg-purple-500 text-white hover:bg-purple-600 transition">
+      <button className="h-10 px-4 rounded bg-purple-500 text-white hover:bg-purple-600 transition"
+      onClick={()=> navigate(`/admin-dashboard/employee/Salary/${id}`)}
+      >
         Salary
       </button>
       <button className="h-10 px-4 rounded bg-green-600 text-white hover:bg-green-700 transition">
@@ -47,10 +72,10 @@ export const EmployeeButton = ({ id }) => {
     </div>
   );
 };
+
 export const getEmployeeColumns = ()=>[{
       name: 'S.No', 
      selector: (row) => row.SNo,
-      sortable: true,
     },
     {
       name:'Name',

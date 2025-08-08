@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
-const EmployeeView = () => {
+const EmployeeProfile = () => {
   const { id } = useParams();
   const [employee, setEmployee] = useState({});
   const [loading, setLoading] = useState(false);
@@ -81,4 +81,4 @@ const EmployeeView = () => {
   );
 };
 
-export default EmployeeView;
+export default EmployeeProfile;

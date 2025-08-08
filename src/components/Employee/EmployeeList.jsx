@@ -64,14 +64,14 @@ const EmployeeList = () => {
   return (
     <>
       {emploading ? (
-        <div className="flex justify-center items-center mt-20">
+        <div className="ml-[250px] mt-10 flex items-center justify-center h-screen">
           <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-blue-500 border-solid"></div>
           <span className="ml-4 text-gray-600 text-lg font-medium">
             Loading...
           </span>
         </div>
       ) : (
-        <div className="ml-[250px] mr-10 mt-10">
+        <div className="ml-[250px]  mr-10 mt-10">
           <h1 className="text-2xl font-bold text-gray-800 mb-6 text-center mt-10">
             📋 Employee List
           </h1>
@@ -92,7 +92,7 @@ const EmployeeList = () => {
             </Link>
           </div>
 
-          <div className="w-full  mt-10  rounded-lg border border-gray-300 shadow-lg p-6 bg-white">
+          <div className="w-full overflow-auto max-h-[calc(100vh-20rem)] mt-10  rounded-lg border border-gray-300 shadow-lg p-6 bg-white">
             <DataTable
               columns={getEmployeeColumns()}
               data={searchEmployee || employees}
@@ -103,7 +103,7 @@ const EmployeeList = () => {
               customStyles={{
                 rows: {
                   style: {
-                    minHeight: "90px",
+                    minHeight: "50px",
                   },
                 },
                 headCells: {

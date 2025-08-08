@@ -18,6 +18,14 @@ import AddEmployee from './components/Employee/AddEmployee';
 import EmployeeView from './components/Employee/EmployeeView';
 import EmployeeEdit from './components/Employee/EmployeeEdit';
 
+import AddSalarys from './components/Salary/AddSalary';
+import SalaryList from './components/Salary/SalaryList';
+
+import EmployeeProfile from './components/EmployeeDashboard/EmployeeProfile';
+
+
+
+
 import Login from "./pages/Login";
 import "./index.css";
 
@@ -38,6 +46,7 @@ function App() {
   }
 >
   <Route index element={<AdminSummary />} />
+
   <Route path="/admin-dashboard/departmentList" element={<DepartmentList />} />
   <Route path="/admin-dashboard/Add-department" element={<AddDepartment />} />
   <Route path="/admin-dashboard/department/:id" element={<EditDepartment />} />
@@ -46,8 +55,24 @@ function App() {
   <Route path="/admin-dashboard/add-employee" element={<AddEmployee />} />
   <Route path="/admin-dashboard/employee/:id" element={<EmployeeView />} />
   <Route path="/admin-dashboard/employee/Edit/:id" element={<EmployeeEdit/>} />
+
+
+  <Route path="/admin-dashboard/Add-Salary" element={<AddSalarys/>} />
+  <Route path="/admin-dashboard/employee/Salary/:id" element={<SalaryList/>} />
 </Route>
- <Route path="/employe-dashboard" element={<EmployeDashboard />} />
+
+<Route path="/employee-dashboard" element={
+  <PrivateRoutes >
+    <RoleBasedRoute requiredRoles={['admin','employe']}>
+              <EmployeDashboard />
+   </RoleBasedRoute>
+  </PrivateRoutes>} >
+
+  
+  <Route path="/employee-dashboard/EmployeeProfile/:id" element={<EmployeeProfile />} />
+  
+  </Route> 
+ 
         </Routes>
       </Router>
     </>

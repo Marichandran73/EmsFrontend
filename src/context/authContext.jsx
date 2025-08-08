@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const UserContext = createContext();
 
-const AuthProvider = ({ children }) => {
+const AuthProvider = ({ children } = {}) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -17,7 +17,6 @@ const AuthProvider = ({ children }) => {
     localStorage.removeItem('token');
   };
 
-  
   useEffect(() => {
     const verifyUser = async () => {
       const token = localStorage.getItem('token');
@@ -26,7 +25,6 @@ const AuthProvider = ({ children }) => {
         setLoading(false);
         return;
       }
-      // console.log('before fetching token',token);
 
       try {
         const response = await axios.get('http://localhost:3000/api/auth/verify', {
@@ -34,7 +32,6 @@ const AuthProvider = ({ children }) => {
             Authorization: `Bearer ${token}`,
           },
         });
-
 
         if (response.data.success) {
           setUser(response.data.user);

@@ -6,7 +6,6 @@ export const getDepartmentColumns = (OnDepartmentDelete)=>[
     name: "SNo",
     selector: (row) => row.SNo,
     sortable: true,
-    marginLeft: '200px',
   },
   {
     name: "Department",

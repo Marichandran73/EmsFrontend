@@ -3,6 +3,9 @@ import { fetchDepartments } from "../../pages/utils/EmployeeHelper";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const EmployeeEdit = () => {
   const [employee, setEmployee] = useState(null);
   const [departments, setDepartments] = useState(null);
@@ -45,7 +48,6 @@ const EmployeeEdit = () => {
     const { name, value } = e.target;
 
     if (name === "name" || name === "email") {
-      // Nested userId updates (e.g., name/email inside userId)
       setEmployee((prev) => ({
         ...prev,
         userId: {
@@ -54,7 +56,6 @@ const EmployeeEdit = () => {
         },
       }));
     } else {
-      // Flat fields like phone, designation, etc.
       setEmployee((prev) => ({
         ...prev,
         [name]: value,
@@ -77,13 +78,14 @@ const EmployeeEdit = () => {
       );
 
       if (response.data.success) {
-        alert("Employee updated successfully!");
-        navigate(-1);
+        toast.success('Data updated successfully!');  
+        setTimeout(() => navigate(-1), 1000); 
       } else {
-        alert("Update failed!");
+        toast.error("Update failed!");  
       }
     } catch (error) {
       console.error("Error updating employee:", error);
+      toast.error("Something went wrong!");
     }
   };
 
@@ -99,7 +101,6 @@ const EmployeeEdit = () => {
             onSubmit={handleSubmit}
             className="grid grid-cols-1 md:grid-cols-2 gap-6"
           >
-            {/* Full Name */}
             <div>
               <label className="block text-gray-700 font-semibold mb-1">
                 Full Name
@@ -115,7 +116,6 @@ const EmployeeEdit = () => {
               />
             </div>
 
-            {/* Phone */}
             <div>
               <label className="block text-gray-700 font-semibold mb-1">
                 Phone Number
@@ -131,7 +131,6 @@ const EmployeeEdit = () => {
               />
             </div>
 
-            {/* Designation */}
             <div>
               <label className="block text-gray-700 font-semibold mb-1">
                 Designation
@@ -146,7 +145,6 @@ const EmployeeEdit = () => {
               />
             </div>
 
-            {/* Salary */}
             <div>
               <label className="block text-gray-700 font-semibold mb-1">
                 Salary
@@ -161,7 +159,6 @@ const EmployeeEdit = () => {
               />
             </div>
 
-            {/* Address */}
             <div className="md:col-span-2">
               <label className="block text-gray-700 font-semibold mb-1">
                 Address
@@ -176,7 +173,6 @@ const EmployeeEdit = () => {
               ></textarea>
             </div>
 
-            {/* Buttons */}
             <div className="md:col-span-2 text-center">
               <button
                 type="submit"
@@ -186,7 +182,10 @@ const EmployeeEdit = () => {
               </button>
               <button
                 type="button"
-                onClick={() => navigate(-1)}
+                onClick={() => {
+                  toast.info("Edit cancelled"); 
+                  setTimeout(() => navigate(-1), 2000); }
+                }
                 className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-md font-semibold shadow ml-4"
               >
                 Cancel
@@ -195,13 +194,16 @@ const EmployeeEdit = () => {
           </form>
         </div>
       ) : (
-        <div className="flex justify-center items-center mt-20">
+        <div className="ml-[250px] mt-10 flex items-center justify-center h-screen">
           <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-blue-500 border-solid"></div>
           <span className="ml-4 text-gray-600 text-lg font-medium">
             Loading...
           </span>
         </div>
       )}
+
+
+      <ToastContainer position="top-right" style={{marginTop: '40px'}}  autoClose={3000} />
     </>
   );
 };

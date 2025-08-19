@@ -1,37 +1,38 @@
 export const getSalaryColumns = () => [
   {
     name: 'S.No',
-    selector: (row) => row.SNo,
+    selector: (row, index) => index + 1, 
     sortable: true,
   },
   {
     name: 'Employee ID',
-    selector: (row) => row.employeeId,
+    selector: (row) => row.employeeId || '-',
     sortable: true,
   },
   {
     name: 'Basic Salary (₹)',
-    selector: (row) => row.Salary,
+    selector: (row) => row.basicSalary ?? 0,
     sortable: true,
   },
   {
     name: 'Allowances (₹)',
-    selector: (row) => row.Allowances,
+    selector: (row) => row.allowances ?? row.allowences ?? 0, 
     sortable: true,
   },
   {
     name: 'Deductions (₹)',
-    selector: (row) => row.Deductions,
+    selector: (row) => row.deduction ?? 0,
     sortable: true,
   },
   {
     name: 'Net Salary (₹)',
-    selector: (row) => row.Total,
+    selector: (row) => row.netSalary,
     sortable: true,
   },
   {
     name: 'Pay Date',
-    selector: (row) => new Date(row.PayDate).toLocaleDateString(),
+    selector: (row) =>
+      row.payDate ? new Date(row.payDate).toLocaleDateString() : '-',
     sortable: true,
   },
 ];

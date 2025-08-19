@@ -22,6 +22,7 @@ const AuthProvider = ({ children } = {}) => {
       const token = localStorage.getItem('token');
       if (!token) {
         setUser(null);
+        
         setLoading(false);
         return;
       }

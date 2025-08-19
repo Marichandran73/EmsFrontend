@@ -17,14 +17,13 @@ const Login = () => {
       event.preventDefault();
       try{
         const response =await axios.post('http://localhost:3000/api/auth/login',{email,password});
-        console.log(response.data);
 
         if(response.data.success){
           login(response.data.token);
           localStorage.setItem('token',response.data.token);
           if(response.data.user.role ==='Admin'){
             navigate('/admin-dashboard');
-          }else if(response.data.user.role==='Employee'){
+          }else if(response.data.user.role ==='Employee'){
             navigate('/employee-dashboard');
           }else{
             navigate('/login');

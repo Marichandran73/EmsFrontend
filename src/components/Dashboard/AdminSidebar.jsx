@@ -9,9 +9,9 @@ const links = [
   { to: '/admin-dashboard', label: 'Dashboard', icon: <FaTachometerAlt /> },
   { to: '/admin-dashboard/EmployeeList', label: 'Employee', icon: <FaUsers /> },
   { to: '/admin-dashboard/departmentList', label: 'Department', icon: <FaBuilding /> },
-  { to: '/leave', label: 'Leave', icon: <GiInterleavedArrows /> },
+  { to: '/admin-dashboard/leaves', label: 'Leave', icon: <GiInterleavedArrows /> },
   { to: '/admin-dashboard/Add-Salary', label: 'Salary', icon: <CiMoneyCheck1 /> },
-  { to: '/settings', label: 'Settings', icon: <IoSettings /> },
+  { to: 'Settings', label: 'Settings', icon: <IoSettings /> },
 ];
 
 const AdminSidebar = () => {

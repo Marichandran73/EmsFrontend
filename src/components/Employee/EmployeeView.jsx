@@ -29,7 +29,7 @@ const EmployeeView = () => {
           alert(err.response.data.error);
         }
       } finally {
-        setLoading(false); // Hide loader
+        setLoading(false); 
       }
     };
 

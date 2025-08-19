@@ -5,18 +5,30 @@ import { CiMoneyCheck1 } from 'react-icons/ci';
 import { GiInterleavedArrows } from 'react-icons/gi';
 import { IoSettings } from 'react-icons/io5';
 
-import useAuth from '../../context/authContext';
+import { useAuth } from '../../context/authContext'; // ensure correct import
 
 const EmployeeSidebar = () => {
-  const { user } = useAuth() || {}; 
-  console.log('user console',user);
+  const { user } = useAuth();
+ 
+
+  if (!user) {
+    
+    return (
+       <div className="ml-[250px] mt-10 flex items-center justify-center h-screen">
+          <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-blue-500 border-solid"></div>
+          <span className="ml-4 text-gray-600 text-lg font-medium">
+            Loading...
+          </span>
+        </div>
+    );
+  }
 
   const links = [
     { to: '/employee-dashboard', label: 'Dashboard', icon: <FaTachometerAlt /> },
-    { to: `/employee-dashboard/EmployeeProfile/${user?.id || "invalid"}`, label: 'My Profile', icon: <FaUsers /> },
-    { to: '/leave', label: 'Leaves', icon: <GiInterleavedArrows /> },
-    { to: '/admin-dashboard/Add-Salary', label: 'Salary', icon: <CiMoneyCheck1 /> },
-    { to: '/settings', label: 'Settings', icon: <IoSettings /> },
+    { to: `/employee-dashboard/profile/${user._id}`, label: 'My Profile', icon: <FaUsers /> },
+    { to: '/employee-dashboard/LeaveList', label: 'Leaves', icon: <GiInterleavedArrows /> },
+    { to: `/employee-dashboard/EmpSalary/${user._id}`, label: 'Salary', icon: <CiMoneyCheck1 /> },
+    { to: '/employee-dashboard/EmpSettings', label: 'Settings', icon: <IoSettings /> },
   ];
 
   return (

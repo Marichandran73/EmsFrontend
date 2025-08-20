@@ -16,7 +16,7 @@ const Login = () => {
     const handleSubmit=async(event)=>{
       event.preventDefault();
       try{
-        const response =await axios.post('http://localhost:3000/api/auth/login',{email,password});
+        const response =await axios.post('https://emsbackend-z0kf.onrender.com/api/auth/login',{email,password});
 
         if(response.data.success){
           login(response.data.token);

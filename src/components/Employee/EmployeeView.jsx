@@ -12,7 +12,7 @@ const EmployeeView = () => {
       setLoading(true); 
       try {
         const response = await axios.get(
-          `http://localhost:3000/api/employee/${id}`,
+          `https://emsbackend-z0kf.onrender.com/api/employee/${id}`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -54,7 +54,7 @@ const EmployeeView = () => {
         <div className="ml-[250px] mr-10 mt-10 flex flex-col md:flex-row items-start gap-10 bg-gray-100 p-6 rounded-lg shadow-lg">
           <div className="flex-shrink-0 mt-6">
             <img
-              src={`http://localhost:3000/Public/Uploads/${employee.userId.profileImage}`}
+              src={`https://emsbackend-z0kf.onrender.com/Public/Uploads/${employee.userId.profileImage}`}
               alt="Employee Profile"
               className="w-64 h-64 rounded-xl object-contain border-4 border-white shadow-md bg-white p-2"
             />

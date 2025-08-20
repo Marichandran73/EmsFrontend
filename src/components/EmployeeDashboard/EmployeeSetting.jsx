@@ -33,7 +33,7 @@ const EmployeeSetting = () => {
 
   try {
     const response = await axios.put(
-      "http://localhost:3000/api/Setting/Password-change",
+      "https://emsbackend-z0kf.onrender.com/api/Setting/Password-change",
       setting,
       {
         headers: {

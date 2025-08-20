@@ -28,7 +28,7 @@ const EmployeeList = () => {
 
       try {
         const response = await axios.get(
-          "http://localhost:3000/api/employee/getemp",
+          "https://emsbackend-z0kf.onrender.com/api/employee/getemp",
           {
             headers: { Authorization: `Bearer ${token}` },
           }

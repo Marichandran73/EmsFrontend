@@ -9,7 +9,7 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 export const fetchDepartments = async () => {
     let department;
     try {
-      const response = await axios.get('http://localhost:3000/api/department', {
+      const response = await axios.get('https://emsbackend-z0kf.onrender.com/api/department', {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
         }
@@ -30,7 +30,7 @@ export const fetchDepartments = async () => {
 export const GetEmployee = async (id) => {
   let employees;
   try {
-    const response = await axios.get(`http://localhost:3000/api/employee/department/${id}`, {
+    const response = await axios.get(`https://emsbackend-z0kf.onrender.com/api/employee/department/${id}`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`
       }
@@ -145,7 +145,7 @@ export const getEmployeeColumns = () => [
     name: 'Profile',
     cell: (row) => (
       <img
-        src={`http://localhost:3000/Public/Uploads/${row.image}`}
+        src={`https://emsbackend-z0kf.onrender.com/Public/Uploads/${row.image}`}
         alt="Profile"
         className="w-20 h-20 rounded-full object-cover object-top"
         onError={(e) => (e.target.style.display = 'none')}

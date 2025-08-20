@@ -40,7 +40,7 @@ const AddEmployee = () => {
     setLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/employee/addemp",
+        "https://emsbackend-z0kf.onrender.com/api/employee/addemp",
         FormdataObj,
         {
           headers: {

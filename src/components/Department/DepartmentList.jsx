@@ -29,7 +29,7 @@ const DepartmentList = () => {
       setDepLoading(true);
       try {
         const response = await axios.get(
-          "http://localhost:3000/api/department",
+          "https://emsbackend-z0kf.onrender.com/api/department",
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,

@@ -28,7 +28,7 @@ useEffect(() => {
       setSalaryLoading(true);
       try {
         const response = await axios.get(
-          `http://localhost:3000/api/salary/forUser/${id}`,
+          `https://emsbackend-z0kf.onrender.com/api/salary/forUser/${id}`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,

@@ -25,7 +25,7 @@ const AddLeave = () => {
 
     try {
       const response = await axios.post(
-        'http://localhost:3000/api/Leave/addLeave',
+        'https://emsbackend-z0kf.onrender.com/api/Leave/addLeave',
         leaves,
         {
           headers: {

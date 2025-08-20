@@ -28,7 +28,7 @@ const AuthProvider = ({ children } = {}) => {
       }
 
       try {
-        const response = await axios.get('http://localhost:3000/api/auth/verify', {
+        const response = await axios.get('https://emsbackend-z0kf.onrender.com/api/auth/verify', {
           headers: {
             Authorization: `Bearer ${token}`,
           },

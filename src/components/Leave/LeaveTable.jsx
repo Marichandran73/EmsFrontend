@@ -20,7 +20,7 @@ const LeaveTable = () => {
 
     try {
       const response = await axios.get(
-        "http://localhost:3000/api/Leave/AllLeaves",
+        "https://emsbackend-z0kf.onrender.com/api/Leave/AllLeaves",
         {
           headers: { Authorization: `Bearer ${token}` },
         }

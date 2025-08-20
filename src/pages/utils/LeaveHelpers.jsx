@@ -37,19 +37,24 @@ export const leaveColumns = () => [
 ];
 
 
-export const LeaveButton =({id})=>{
-  const navigate= useNavigate();
+export const LeaveButton = ({ Id }) => {
+  const navigate = useNavigate();
 
-   const handleView=(id)=>{
-   
-   }
-  return(
-    <button className="px-4 py-1 bg-teal-500 rounded text-white hover:bg-teal-600"
-    onClick={handleView(id)}>
+  const handleView = (_id) => {
+    navigate(`/admin-dashboard/ViewLeaves/${_id}`);
+    console.log("id:", _id);
+  };
+
+  return (
+    <button
+      className="px-4 py-1 bg-teal-500 rounded text-white hover:bg-teal-600"
+      onClick={() => handleView(Id)}  
+    >
       View
     </button>
-  )
-}
+  );
+};
+
 
 export const AdminLeaveCol=()=>[
   {

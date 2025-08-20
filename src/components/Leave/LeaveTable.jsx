@@ -26,8 +26,6 @@ const LeaveTable = () => {
         }
       );
 
-      console.log("backend data ::", response.data.Leaves);
-
       if (response.data.success && Array.isArray(response.data.Leaves)) {
         const data = response.data.Leaves.map((leave,index) => ({
            SNo:index+1,
@@ -45,7 +43,6 @@ const LeaveTable = () => {
           action: <LeaveButton Id={leave._id} />,
         }));
 
-        console.log("formatted data:", data);
         setLeaves(data);
       } else {
         alert("No leave records found");

@@ -27,6 +27,7 @@ import "./index.css";
 import NewLeave from "./components/Leave/AddLeave";
 import LeaveList from "./components/Leave/LeaveList";
 import LeaveTable from "./components/Leave/LeaveTable";
+import ViewLeaves from "./components/Leave/ViewLeaves";
 
 function App() {
   return (
@@ -58,6 +59,7 @@ function App() {
             <Route path="Add-Salary" element={<AddSalarys />} />
             <Route path="employees/Salary/:id" element={<SalaryList />} />
             <Route path="leaves" element={<LeaveTable />} />
+            <Route path="ViewLeaves/:id" element={<ViewLeaves />} />
 
           </Route>
 

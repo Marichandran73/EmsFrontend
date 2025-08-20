@@ -13,7 +13,7 @@ const LeaveList = () => {
 
   
     const fetchLeaves = async () => {
-      console.log(user);
+
       try {
         const response = await axios.get(
           `http://localhost:3000/api/Leave/getLeave/${user._id}`,
@@ -26,7 +26,7 @@ const LeaveList = () => {
 
         if (response.data.success) {
           setEmployeeLeaves(response.data.getLeaves || []);
-          console.log('frontend response :',employeeLeaves);
+
         }
       } catch (err) {
         console.error(err);

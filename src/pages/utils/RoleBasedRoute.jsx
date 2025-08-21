@@ -1,5 +1,5 @@
 import React from 'react'
-import { useAuth} from '../../Context/authContext';
+import { useAuth} from '../../Context/AuthContext';
 import { Navigate } from "react-router-dom";
 
 const RoleBasedRoute = ({children, requiredRoles}) => {

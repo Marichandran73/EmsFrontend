@@ -1,6 +1,6 @@
 import React from 'react';
 import '../assets/css/Style.css';
-import { useAuth } from '../Context/authContext';
+import { useAuth } from '../Context/AuthContext';
 import EmployeeSidebar from '../components/EmployeeDashboard/EmployeeSidebar';
 import NavBars from '../components/Dashboard/NavBars';
 import { FaUserTie } from "react-icons/fa";

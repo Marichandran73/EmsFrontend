@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaUserTie } from "react-icons/fa";
-import useAuth from '../../Context/authContext';
+import useAuth from '../../Context/AuthContext';
 
 const Summary = () => {
   let user;

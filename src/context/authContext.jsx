@@ -1,7 +1,7 @@
-import React, { useState, createcontext, usecontext, useEffect } from 'react';
+import React, { useState, createContext, useContext, useEffect } from 'react';
 import axios from 'axios';
 
-const Usercontext = createcontext();
+const Usercontext = createContext();
 
 const AuthProvider = ({ children } = {}) => {
   const [user, setUser] = useState(null);
@@ -57,5 +57,5 @@ const AuthProvider = ({ children } = {}) => {
   );
 };
 
-export const useAuth = () => usecontext(Usercontext);
+export const useAuth = () => useContext(Usercontext);
 export default AuthProvider;

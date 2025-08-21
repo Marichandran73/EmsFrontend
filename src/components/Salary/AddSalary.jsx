@@ -25,7 +25,7 @@ const AddSalary = () => {
     const GetDepartment = async () => {
       try {
         const Department = await fetchDepartments();
-        console.log("outer response", Department);
+
         setDepartments(Array.isArray(Department) ? Department : []);
       } catch (error) {
         console.error("Error fetching departments:", error);

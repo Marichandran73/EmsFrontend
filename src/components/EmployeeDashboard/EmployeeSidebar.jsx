@@ -5,7 +5,7 @@ import { CiMoneyCheck1 } from 'react-icons/ci';
 import { GiInterleavedArrows } from 'react-icons/gi';
 import { IoSettings } from 'react-icons/io5';
 
-import { useAuth } from '../../context/Authcontext'; // ensure correct import
+import { useAuth } from '../../context/AuthContext'; // ensure correct import
 
 const EmployeeSidebar = () => {
   const { user } = useAuth();

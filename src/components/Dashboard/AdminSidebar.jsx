@@ -11,7 +11,7 @@ const links = [
   { to: '/admin-dashboard/departmentList', label: 'Department', icon: <FaBuilding /> },
   { to: '/admin-dashboard/leaves', label: 'Leave', icon: <GiInterleavedArrows /> },
   { to: '/admin-dashboard/Add-Salary', label: 'Salary', icon: <CiMoneyCheck1 /> },
-  { to: 'Settings', label: 'Settings', icon: <IoSettings /> },
+  { to: '', label: 'Settings', icon: <IoSettings /> },
 ];
 
 const AdminSidebar = () => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import '../assets/css/Style.css'
-import { useAuth } from '../Context/AuthContext';
+import { useAuth } from '../context/Authcontext';
 import AdminSidebar from '../components/Dashboard/AdminSidebar';
 import NavBars from '../components/Dashboard/NavBars';
 

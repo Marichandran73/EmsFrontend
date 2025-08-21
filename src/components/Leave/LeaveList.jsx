@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { leaveColumns } from "../../pages/utils/LeaveHelpers";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useAuth } from '../../Context/AuthContext';
+import { useAuth } from '../../context/Authcontext';
 
 const LeaveList = () => {
   const { user } = useAuth();

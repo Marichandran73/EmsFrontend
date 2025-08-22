@@ -90,122 +90,132 @@ const EmployeeEdit = () => {
   };
 
   return (
-    <>
-      {departments && employee ? (
-        <div className="max-w-4xl mx-auto px-6 py-10 bg-white rounded-lg shadow-lg mt-10 h-[800px] overflow-y-scroll">
-          <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">
-            Edit Employee
-          </h1>
+  <>
+    {departments && employee ? (
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 bg-white rounded-lg shadow-lg mt-6 sm:mt-10 h-auto sm:h-[800px] sm:overflow-y-scroll">
+        <h1 className="text-2xl sm:text-3xl font-bold text-center text-gray-800 mb-6 sm:mb-8">
+          ✏️ Edit Employee
+        </h1>
 
-          <form
-            onSubmit={handleSubmit}
-            className="grid grid-cols-1 md:grid-cols-2 gap-6"
-          >
-            <div>
-              <label className="block text-gray-700 font-semibold mb-1">
-                Full Name
-              </label>
-              <input
-                type="text"
-                name="name"
-                value={employee.userId?.name || ""}
-                autoComplete="name"
-                onChange={handleChange}
-                required
-                className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
+        <form
+          onSubmit={handleSubmit}
+          className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6"
+        >
+          {/* Full Name */}
+          <div>
+            <label className="block text-gray-700 font-semibold mb-1">
+              Full Name
+            </label>
+            <input
+              type="text"
+              name="name"
+              value={employee.userId?.name || ""}
+              autoComplete="name"
+              onChange={handleChange}
+              required
+              className="w-full border border-gray-300 rounded-md px-3 sm:px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
 
-            <div>
-              <label className="block text-gray-700 font-semibold mb-1">
-                Phone Number
-              </label>
-              <input
-                type="tel"
-                name="phone"
-                value={employee.phone || ""}
-                onChange={handleChange}
-                autoComplete="tel"
-                required
-                className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
+          {/* Phone */}
+          <div>
+            <label className="block text-gray-700 font-semibold mb-1">
+              Phone Number
+            </label>
+            <input
+              type="tel"
+              name="phone"
+              value={employee.phone || ""}
+              onChange={handleChange}
+              autoComplete="tel"
+              required
+              className="w-full border border-gray-300 rounded-md px-3 sm:px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
 
-            <div>
-              <label className="block text-gray-700 font-semibold mb-1">
-                Designation
-              </label>
-              <input
-                type="text"
-                name="designation"
-                value={employee.designation || ""}
-                onChange={handleChange}
-                required
-                className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
+          {/* Designation */}
+          <div>
+            <label className="block text-gray-700 font-semibold mb-1">
+              Designation
+            </label>
+            <input
+              type="text"
+              name="designation"
+              value={employee.designation || ""}
+              onChange={handleChange}
+              required
+              className="w-full border border-gray-300 rounded-md px-3 sm:px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
 
-            <div>
-              <label className="block text-gray-700 font-semibold mb-1">
-                Salary
-              </label>
-              <input
-                type="number"
-                name="salary"
-                value={employee.salary || ""}
-                onChange={handleChange}
-                required
-                className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
+          {/* Salary */}
+          <div>
+            <label className="block text-gray-700 font-semibold mb-1">
+              Salary
+            </label>
+            <input
+              type="number"
+              name="salary"
+              value={employee.salary || ""}
+              onChange={handleChange}
+              required
+              className="w-full border border-gray-300 rounded-md px-3 sm:px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
 
-            <div className="md:col-span-2">
-              <label className="block text-gray-700 font-semibold mb-1">
-                Address
-              </label>
-              <textarea
-                name="address"
-                value={employee.address || ""}
-                onChange={handleChange}
-                rows="3"
-                required
-                className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              ></textarea>
-            </div>
+          {/* Address */}
+          <div className="md:col-span-2">
+            <label className="block text-gray-700 font-semibold mb-1">
+              Address
+            </label>
+            <textarea
+              name="address"
+              value={employee.address || ""}
+              onChange={handleChange}
+              rows="3"
+              required
+              className="w-full border border-gray-300 rounded-md px-3 sm:px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            ></textarea>
+          </div>
 
-            <div className="md:col-span-2 text-center">
-              <button
-                type="submit"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md font-semibold shadow"
-              >
-                Save Employee
-              </button>
-              <button
-                type="button"
-                onClick={() => {
-                  toast.info("Edit cancelled"); 
-                  setTimeout(() => navigate(-1), 2000); }
-                }
-                className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-md font-semibold shadow ml-4"
-              >
-                Cancel
-              </button>
-            </div>
-          </form>
-        </div>
-      ) : (
-        <div className="ml-[250px] mt-10 flex items-center justify-center h-screen">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-blue-500 border-solid"></div>
-          <span className="ml-4 text-gray-600 text-lg font-medium">
-            Loading...
-          </span>
-        </div>
-      )}
+          {/* Action buttons */}
+          <div className="md:col-span-2 flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 mt-4">
+            <button
+              type="submit"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-5 sm:px-6 py-2 rounded-md font-semibold shadow w-full sm:w-auto"
+            >
+              Save Employee
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                toast.info("Edit cancelled");
+                setTimeout(() => navigate(-1), 2000);
+              }}
+              className="bg-red-600 hover:bg-red-700 text-white px-5 sm:px-6 py-2 rounded-md font-semibold shadow w-full sm:w-auto"
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    ) : (
+      <div className="ml-0 sm:ml-[250px] mt-10 flex items-center justify-center h-screen">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-blue-500 border-solid"></div>
+        <span className="ml-4 text-gray-600 text-lg font-medium">
+          Loading...
+        </span>
+      </div>
+    )}
 
+    <ToastContainer
+      position="top-right"
+      style={{ marginTop: "40px" }}
+      autoClose={3000}
+    />
+  </>
+);
 
-      <ToastContainer position="top-right" style={{marginTop: '40px'}}  autoClose={3000} />
-    </>
-  );
 };
 
 export default EmployeeEdit;

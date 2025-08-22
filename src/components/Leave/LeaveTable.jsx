@@ -77,51 +77,52 @@ const LeaveTable = () => {
     return matchesSearch && matchesStatus;
   });
 
-  return (
-    <>
-      {leaveLoading ? (
-        <div className="ml-[250px] mt-10 flex items-center justify-center h-screen">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-blue-500 border-solid"></div>
-          <span className="ml-4 text-gray-600 text-lg font-medium">
-            Loading...
-          </span>
-        </div>
-      ) : (
-        <div className="mt-20 ml-64">
-          <h1 className="text-2xl font-bold text-gray-800 mb-6 text-center">
-            📋 Manage Leave
-          </h1>
+ return (
+  <>
+    {leaveLoading ? (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-blue-500 border-solid"></div>
+        <span className="ml-4 text-gray-600 text-lg font-medium">Loading...</span>
+      </div>
+    ) : (
+      <div className="mt-20 px-4 sm:ml-64">
+        <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-6 text-center">
+          📋 Manage Leave
+        </h1>
 
-          {/* 🔎 Search + Status filter */}
-          <div className="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4">
-            <input
-              type="text"
-              className="w-full sm:w-1/3 border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-              placeholder="🔍 Search department or employee..."
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-            />
+        {/* 🔎 Search + Status filter */}
+        <div className="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4">
+          {/* Search */}
+          <input
+            type="text"
+            className="w-full sm:w-1/3 border border-gray-300 rounded-md px-4 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+            placeholder="🔍 Search department or employee..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
 
-            <div className="flex gap-3 mr-5">
-              {["Pending", "Approved", "Reject", "All"].map((status) => (
-                <button
-                  key={status}
-                  onClick={() => setStatusFilter(status)}
-                  className={`h-10 px-4 py-2 rounded ${
-                    statusFilter === status
-                      ? status === "Reject"
-                        ? "bg-red-500 text-white"
-                        : "bg-green-500 text-white"
-                      : "bg-lime-200"
-                  }`}
-                >
-                  {status}
-                </button>
-              ))}
-            </div>
+          {/* Status Filters */}
+          <div className="flex gap-2 sm:gap-3">
+            {["Pending", "Approved", "rejected", "All"].map((status) => (
+              <button
+                key={status}
+                onClick={() => setStatusFilter(status)}
+                className={`px-4 py-2 rounded-md font-medium text-sm sm:text-base transition ${
+                  statusFilter === status
+                    ? status === "rejected"
+                      ? "bg-red-500 text-white"
+                      : "bg-green-500 text-white"
+                    : "bg-gray-200 hover:bg-gray-300"
+                }`}
+              >
+                {status}
+              </button>
+            ))}
           </div>
+        </div>
 
-          {/* 📊 Table */}
+        {/* 📊 Table */}
+        <div className="bg-white shadow-md rounded-lg p-4">
           <DataTable
             columns={AdminLeaveCol()}
             data={filteredLeaves}
@@ -129,9 +130,11 @@ const LeaveTable = () => {
             progressPending={leaveLoading}
           />
         </div>
-      )}
-    </>
-  );
+      </div>
+    )}
+  </>
+);
+
 };
 
 export default LeaveTable;

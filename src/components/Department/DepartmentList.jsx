@@ -62,71 +62,76 @@ const DepartmentList = () => {
     fetchDepartments();
   }, []);
 
-  return (
-    <div className="w-full lg:max-w-7xl ml-64 mx-auto px-6 py-8">
-      {deploading ? (
-        <div className="ml-[250px] mt-7 flex items-center justify-center h-screen">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-blue-500 border-solid"></div>
-          <span className="ml-4 text-gray-600 text-lg font-medium">
-            Loading...
-          </span>
+ return (
+  <div className="w-full lg:max-w-7xl ml-64 mx-auto px-6 py-8">
+    {deploading ? (
+      // ✅ Loader Section
+      <div className="flex items-center justify-center h-screen">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-blue-500 border-solid"></div>
+        <span className="ml-4 text-gray-600 text-lg font-medium">
+          Loading...
+        </span>
+      </div>
+    ) : (
+      <>
+        {/* ✅ Page Title */}
+        <h1 className="text-2xl font-bold text-gray-800 mb-6 text-center">
+          📋 Department List
+        </h1>
+
+        {/* ✅ Search & Add Button */}
+        <div className="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4">
+          <input
+            type="text"
+            className="w-full sm:w-1/3 border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            placeholder="🔍 Search department..."
+            onChange={FilterDepartment}
+          />
+
+          <Link
+            to="/admin-dashboard/Add-department"
+            className="bg-green-600 hover:bg-green-700 text-white font-medium px-5 py-2 rounded-md shadow"
+          >
+            ➕ Add New Department
+          </Link>
         </div>
-      ) : (
-        <>
-          <h1 className="text-2xl font-bold text-gray-800 mb-6 text-center">
-            📋 Department List
-          </h1>
 
-          <div className="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4">
-            <input
-              type="text"
-              className="w-full sm:w-1/3 border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-              placeholder="🔍 Search department..."
-              onChange={FilterDepartment}
-            />
+        {/* ✅ Data Table */}
+        <div className="overflow-auto max-h-[calc(100vh-20rem)] mt-10 rounded-lg border border-gray-300 shadow-lg p-6 bg-white">
+          <DataTable
+            columns={getDepartmentColumns(OnDepartmentDelete)}
+            data={searchTerm}
+            pagination
+            responsive
+            striped
+            highlightOnHover
+            dense
+            customStyles={{
+              rows: {
+                style: {
+                  minHeight: "80px",
+                },
+              },
+              headCells: {
+                style: {
+                  fontSize: "16px",
+                  fontWeight: "bold",
+                  backgroundColor: "#f9fafb",
+                },
+              },
+              cells: {
+                style: {
+                  fontSize: "15px",
+                },
+              },
+            }}
+          />
+        </div>
+      </>
+    )}
+  </div>
+);
 
-            <Link
-              to="/admin-dashboard/Add-department"
-              className="bg-green-600 hover:bg-green-700 text-white font-medium px-5 py-2 rounded-md shadow"
-            >
-              ➕ Add New Department
-            </Link>
-          </div>
-
-          <div className=" overflow-auto max-h-[calc(100vh-20rem)] mt-10  rounded-lg border border-gray-300 shadow-lg p-6 bg-white">
-            <DataTable
-              columns={getDepartmentColumns(OnDepartmentDelete)}
-              data={searchTerm}
-              pagination
-              responsive
-              striped
-              highlightOnHover
-              customStyles={{
-                rows: {
-                  style: {
-                    minHeight: "90px",
-                  },
-                },
-                headCells: {
-                  style: {
-                    fontSize: "18px",
-                    fontWeight: "bold",
-                    padding: "16px",
-                  },
-                },
-                cells: {
-                  style: {
-                    fontSize: "16px",
-                    padding: "16px",
-                  },
-                },
-              }}
-            />
-          </div>
-        </>
-      )}
-    </div>
-  );
 };
 
 export default DepartmentList;

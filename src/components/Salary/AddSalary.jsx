@@ -96,145 +96,145 @@ const AddSalary = () => {
   };
 
   return (
-    <>
-      {loading ? (
-        <div className="ml-[250px] mt-10 flex items-center justify-center h-screen">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-blue-500 border-solid"></div>
-          <span className="ml-4 text-gray-600 text-lg font-medium">
-            Loading...
-          </span>
-        </div>
-      ) : (
-        <div className="max-w-4xl mx-auto px-6 py-10 bg-white rounded-lg shadow-lg mt-10 h-[800px] overflow-y-scroll">
-          <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">
-             Add Salary
-          </h1>
-          <form
-            onSubmit={handleSubmit}
-            className="grid grid-cols-1 md:grid-cols-2 gap-6"
-          >
-            {/* Department */}
-            <div>
-              <label className="block text-gray-700 font-semibold mb-1">
-                Department
-              </label>
-              <select
-                name="department"
-                required
-                onChange={handleDepartment}
-                className="w-full border border-gray-300 rounded-md px-4 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-              >
-                <option value="">Select Department</option>
-                {departments.map((dep) => (
-                  <option key={dep._id} value={dep.departmentName}>
-                    {dep.departmentName}
-                  </option>
-                ))}
-              </select>
-            </div>
+  <>
+    {loading ? (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-blue-500 border-solid"></div>
+        <span className="ml-4 text-gray-600 text-lg font-medium">Loading...</span>
+      </div>
+    ) : (
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-10 bg-white rounded-lg shadow-lg mt-10">
+        <h1 className="text-2xl sm:text-3xl font-bold text-center text-gray-800 mb-8">
+          💰 Add Salary
+        </h1>
 
-            {/* Employee */}
-            <div>
-              <label className="block text-gray-700 font-semibold mb-1">
-                Employee ID
-              </label>
-              <select
-                name="employeeId"
-                required
-                onChange={handleChange}
-                value={addSalary.employeeId}
-                className="w-full border border-gray-300 rounded-md px-4 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-              >
-                <option value="">Select Employee</option>
-                {Array.isArray(employeeList) && employeeList.length > 0 ? (
-                  employeeList.map((emp) => (
-                    <option key={emp._id} value={emp._id}> 
+        <form
+          onSubmit={handleSubmit}
+          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+        >
+          {/* Department */}
+          <div>
+            <label className="block text-gray-700 font-semibold mb-1 text-sm sm:text-base">
+              Department
+            </label>
+            <select
+              name="department"
+              required
+              onChange={handleDepartment}
+              className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm sm:text-base bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              <option value="">Select Department</option>
+              {departments.map((dep) => (
+                <option key={dep._id} value={dep.departmentName}>
+                  {dep.departmentName}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* Employee */}
+          <div>
+            <label className="block text-gray-700 font-semibold mb-1 text-sm sm:text-base">
+              Employee ID
+            </label>
+            <select
+              name="employeeId"
+              required
+              onChange={handleChange}
+              value={addSalary.employeeId}
+              className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm sm:text-base bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              <option value="">Select Employee</option>
+              {Array.isArray(employeeList) && employeeList.length > 0 ? (
+                employeeList.map((emp) => (
+                  <option key={emp._id} value={emp._id}>
                     {emp.name} ({emp.employeeId})
-                    </option>
-                  ))
-                ) : (
-                  <option disabled>No employees found</option>
-                )}
-              </select>
-            </div>
+                  </option>
+                ))
+              ) : (
+                <option disabled>No employees found</option>
+              )}
+            </select>
+          </div>
 
-            {/* Basic Salary */}
-            <div>
-              <label className="block text-gray-700 font-semibold mb-1">
-                Basic Salary
-              </label>
-              <input
-                type="number"
-                name="basicSalary"
-                placeholder="Enter basic salary"
-                required
-                onChange={handleChange}
-                value={addSalary.basicSalary || ""}
-                className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
+          {/* Basic Salary */}
+          <div>
+            <label className="block text-gray-700 font-semibold mb-1 text-sm sm:text-base">
+              Basic Salary
+            </label>
+            <input
+              type="number"
+              name="basicSalary"
+              placeholder="Enter basic salary"
+              required
+              onChange={handleChange}
+              value={addSalary.basicSalary || ""}
+              className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
 
-            {/* Allowances */}
-            <div>
-              <label className="block text-gray-700 font-semibold mb-1">
-                Allowances
-              </label>
-              <input
-                type="number"
-                name="allowences"
-                placeholder="Monthly allowences"
-                required
-                onChange={handleChange}
-                value={addSalary.allowences || ""}
-                className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
+          {/* Allowances */}
+          <div>
+            <label className="block text-gray-700 font-semibold mb-1 text-sm sm:text-base">
+              Allowances
+            </label>
+            <input
+              type="number"
+              name="allowences"
+              placeholder="Monthly allowances"
+              required
+              onChange={handleChange}
+              value={addSalary.allowences || ""}
+              className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
 
-            {/* Deduction */}
-            <div>
-              <label className="block text-gray-700 font-semibold mb-1">
-                Deduction
-              </label>
-              <input
-                type="number"
-                name="deduction"
-                placeholder="Enter deduction"
-                required
-                onChange={handleChange}
-                value={addSalary.deduction || ""}
-                className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
+          {/* Deduction */}
+          <div>
+            <label className="block text-gray-700 font-semibold mb-1 text-sm sm:text-base">
+              Deduction
+            </label>
+            <input
+              type="number"
+              name="deduction"
+              placeholder="Enter deduction"
+              required
+              onChange={handleChange}
+              value={addSalary.deduction || ""}
+              className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
 
-            {/* Payment Date */}
-            <div>
-              <label className="block text-gray-700 font-semibold mb-1">
-                Payment Date
-              </label>
-              <input
-                type="date"
-                name="payDate"
-                required
-                onChange={handleChange}
-                value={addSalary.payDate || ""}
-                className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
+          {/* Payment Date */}
+          <div>
+            <label className="block text-gray-700 font-semibold mb-1 text-sm sm:text-base">
+              Payment Date
+            </label>
+            <input
+              type="date"
+              name="payDate"
+              required
+              onChange={handleChange}
+              value={addSalary.payDate || ""}
+              className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
 
-            {/* Submit Button */}
-            <div className="md:col-span-2 text-center">
-              <button
-                type="submit"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md font-semibold shadow"
-              >
-                Add Salary
-              </button>
-            </div>
-          </form>
-        </div>
-      )}
-    </>
-  );
+          {/* Submit Button */}
+          <div className="md:col-span-2 text-center">
+            <button
+              type="submit"
+              className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-md font-semibold shadow transition"
+            >
+              Add Salary
+            </button>
+          </div>
+        </form>
+      </div>
+    )}
+  </>
+);
+
 };
 
 export default AddSalary;

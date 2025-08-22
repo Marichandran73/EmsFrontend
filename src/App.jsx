@@ -20,7 +20,7 @@ import EmployeeView from "./components/Employee/EmployeeView";
 import EmployeeEdit from "./components/Employee/EmployeeEdit";
 import AddSalarys from "./components/Salary/AddSalary";
 import SalaryList from "./components/Salary/SalaryList";
-// import EmployeeProfile from './components/EmployeeDashboard/EmployeeProfile';
+import AdminSetting from './components/Dashboard/AdminSetting';
 import Login from "./pages/Login";
 import "./index.css";
 
@@ -60,6 +60,8 @@ function App() {
             <Route path="employees/Salary/:id" element={<SalaryList />} />
             <Route path="leaves" element={<LeaveTable />} />
             <Route path="ViewLeaves/:id" element={<ViewLeaves />} />
+          <Route path="LeaveList/:id" element={<LeaveList />} />
+          <Route path="AdminSetting" element={<AdminSetting />} />
 
           </Route>
 

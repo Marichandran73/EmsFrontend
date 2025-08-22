@@ -9,12 +9,14 @@ import { useAuth } from '../../context/AuthContext';
 const LeaveList = () => {
   const { user } = useAuth();
   const [employeeLeaves, setEmployeeLeaves] = useState([]);
+  const [loading ,setLoading]=useState(false)
  
 
   
     const fetchLeaves = async () => {
 
       try {
+        setLoading(true);
         const response = await axios.get(
           `https://emsbackend-z0kf.onrender.com/api/Leave/getLeave/${user._id}`,
           {
@@ -26,13 +28,14 @@ const LeaveList = () => {
 
         if (response.data.success) {
           setEmployeeLeaves(response.data.getLeaves || []);
-
         }
       } catch (err) {
         console.error(err);
         if (err.response && !err.response.data.success) {
           alert(err.response.data.message);
         }
+      }finally{
+        setLoading(false)
       }
     };
     useEffect(() => {
@@ -41,6 +44,16 @@ const LeaveList = () => {
 
   return (
     <>
+    {
+  loading ? (
+    <div className="ml-[250px] mt-5 flex items-center justify-center h-screen">
+      <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-blue-500 border-solid"></div>
+      <span className="ml-4 text-gray-600 text-lg font-medium">
+        Loading...
+      </span>
+    </div>
+  ) : (
+    <div>
       <h1 className="text-2xl font-bold text-gray-800 mb-6 text-center">
         📋 Manage leave
       </h1>
@@ -62,7 +75,7 @@ const LeaveList = () => {
 
       <div className="overflow-auto max-h-[calc(100vh-20rem)] mt-10 rounded-lg border border-gray-300 shadow-lg p-6 bg-white">
         <DataTable
-          columns={leaveColumns()} 
+          columns={leaveColumns()}
           data={employeeLeaves}
           pagination
           responsive
@@ -81,6 +94,10 @@ const LeaveList = () => {
           }}
         />
       </div>
+    </div>
+  )
+}
+
     </>
   );
 };

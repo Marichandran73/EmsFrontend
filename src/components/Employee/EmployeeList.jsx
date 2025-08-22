@@ -61,7 +61,7 @@ const EmployeeList = () => {
     fetchDepartments();
   }, []);
 
-  return (
+   return (
     <>
       {emploading ? (
         <div className="ml-[250px] mt-10 flex items-center justify-center h-screen">
@@ -71,16 +71,17 @@ const EmployeeList = () => {
           </span>
         </div>
       ) : (
-        <div className="ml-[250px]  mr-10 mt-10">
+        <div className="ml-[250px] mr-10 mt-10">
           <h1 className="text-2xl font-bold text-gray-800 mb-6 text-center mt-10">
             📋 Employee List
           </h1>
 
+          {/* Search + Add Button */}
           <div className="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4">
             <input
               type="text"
               className="w-full sm:w-1/3 border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-              placeholder="🔍 Search department..."
+              placeholder="🔍 Search employee..."
               onChange={FilterDepartment}
             />
 
@@ -92,10 +93,11 @@ const EmployeeList = () => {
             </Link>
           </div>
 
-          <div className="w-full overflow-auto max-h-[calc(100vh-20rem)] mt-10  rounded-lg border border-gray-300 shadow-lg p-6 bg-white">
+          {/* Data Table */}
+          <div className="w-full overflow-auto max-h-[calc(100vh-20rem)] mt-10 rounded-lg border border-gray-300 shadow-lg p-6 bg-white">
             <DataTable
               columns={getEmployeeColumns()}
-              data={searchEmployee || employees}
+              data={searchEmployee}
               pagination
               responsive
               striped

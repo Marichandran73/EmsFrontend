@@ -47,12 +47,14 @@ const AddLeave = () => {
   };
 
   return (
-    <div className="max-w-xl mx-auto mt-10 bg-white shadow-md rounded-lg p-8 border border-gray-200">
-      <h1 className="text-2xl font-bold text-gray-800 mb-6 text-center">
+  <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
+    <div className="w-full max-w-xl bg-white shadow-lg rounded-2xl p-6 sm:p-8 border border-gray-200">
+      <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-6 text-center">
         Request for Leave
       </h1>
 
       <form className="space-y-6" onSubmit={handleSubmit}>
+        {/* Leave Type */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Leave Type
@@ -62,17 +64,18 @@ const AddLeave = () => {
             value={leaves.leaveType}
             onChange={handleChange}
             required
-            className="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-blue-400 focus:outline-none"
+            className="w-full border border-gray-300 rounded-lg p-2.5 text-sm sm:text-base focus:ring-2 focus:ring-blue-400 focus:outline-none transition"
           >
             <option value="">Select leave type</option>
             <option value="sick leave">Sick Leave</option>
             <option value="plan leave">Plan Leave</option>
             <option value="casual leave">Casual Leave</option>
-            <option value="Anuval leave">Anuval Leave</option>
+            <option value="annual leave">Annual Leave</option>
             <option value="medical leave">Medical Leave</option>
           </select>
         </div>
 
+        {/* From Date */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
             From Date
@@ -83,10 +86,11 @@ const AddLeave = () => {
             value={leaves.startDate}
             onChange={handleChange}
             required
-            className="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-blue-400 focus:outline-none"
+            className="w-full border border-gray-300 rounded-lg p-2.5 text-sm sm:text-base focus:ring-2 focus:ring-blue-400 focus:outline-none transition"
           />
         </div>
 
+        {/* To Date */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
             To Date
@@ -97,10 +101,11 @@ const AddLeave = () => {
             value={leaves.endDate}
             onChange={handleChange}
             required
-            className="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-blue-400 focus:outline-none"
+            className="w-full border border-gray-300 rounded-lg p-2.5 text-sm sm:text-base focus:ring-2 focus:ring-blue-400 focus:outline-none transition"
           />
         </div>
 
+        {/* Description */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Description
@@ -112,19 +117,22 @@ const AddLeave = () => {
             required
             onChange={handleChange}
             rows="4"
-            className="w-full border border-gray-300 rounded-lg p-2 resize-none focus:ring-2 focus:ring-blue-400 focus:outline-none"
+            className="w-full border border-gray-300 rounded-lg p-2.5 text-sm sm:text-base resize-none focus:ring-2 focus:ring-blue-400 focus:outline-none transition"
           />
         </div>
 
+        {/* Submit Button */}
         <button
           type="submit"
-          className="w-full bg-blue-500 text-white font-medium py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors duration-200"
+          className="w-full bg-blue-500 text-white font-medium py-2.5 sm:py-3 px-4 rounded-lg hover:bg-blue-600 active:bg-blue-700 transition-colors duration-200"
         >
           Add Leave
         </button>
       </form>
     </div>
-  );
+  </div>
+);
+
 };
 
 export default AddLeave;

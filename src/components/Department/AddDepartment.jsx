@@ -41,57 +41,62 @@ const AddDepartment = () => {
   };
 
   return (
-    <>
-      <h1 className="text-2xl mt-10 font-bold mb-6 text-gray-800">
-        Add Department
-      </h1>
-      <div className="max-w-xl mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
-        <form className="space-y-5" onSubmit={handleSubmit}>
-          <div>
-            <label
-              className="block text-gray-700 font-medium mb-2"
-              htmlFor="department-name"
-            >
-              Department Name
-            </label>
-            <input
-              type="text"
-              id="department-name"
-              name="departmentName"
-              placeholder="Enter department name"
-              onChange={handleChange}
-              required
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
+  <>
+    <h1 className="text-2xl mt-10 font-bold mb-6 text-gray-800 text-center md:text-left">
+      Add Department
+    </h1>
 
-          <div>
-            <label
-              className="block text-gray-700 font-medium mb-2"
-              htmlFor="description"
-            >
-              Description
-            </label>
-            <textarea
-              id="description"
-              name="description"
-              placeholder="Enter description here"
-              onChange={handleChange}
-              rows="4"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            ></textarea>
-          </div>
-
-          <button
-            type="submit"
-            className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-all duration-200"
+    <div className="max-w-xl mx-auto mt-10 p-6 px-4 sm:px-6 bg-white rounded-lg shadow-md">
+      <form className="space-y-5" onSubmit={handleSubmit}>
+        {/* Department Name */}
+        <div>
+          <label
+            className="block text-gray-700 font-medium mb-2"
+            htmlFor="department-name"
           >
-            Add Department
-          </button>
-        </form>
-      </div>
-    </>
-  );
+            Department Name
+          </label>
+          <input
+            type="text"
+            id="department-name"
+            name="departmentName"
+            placeholder="Enter department name"
+            onChange={handleChange}
+            required
+            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+
+        {/* Description */}
+        <div>
+          <label
+            className="block text-gray-700 font-medium mb-2"
+            htmlFor="description"
+          >
+            Description
+          </label>
+          <textarea
+            id="description"
+            name="description"
+            placeholder="Enter description here"
+            onChange={handleChange}
+            rows="4"
+            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+          ></textarea>
+        </div>
+
+        {/* Submit Button */}
+        <button
+          type="submit"
+          className="w-full sm:w-auto bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-all duration-200"
+        >
+          Add Department
+        </button>
+      </form>
+    </div>
+  </>
+);
+
 };
 
 export default AddDepartment;

@@ -104,6 +104,7 @@ export const EmployeeButton = ({ id }) => {
           </button>
           <button
             className="block w-full text-left px-4 py-2 rounded-md hover:bg-green-100 text-green-600 font-medium"
+            onClick={() => navigate(`/admin-dashboard/LeaveList/${id}`)}
           >
             Leave
           </button>

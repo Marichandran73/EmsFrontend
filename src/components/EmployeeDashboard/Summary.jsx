@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaUserTie } from "react-icons/fa";
-import useAuth from '../../context/AuthContext';
+import useAuth from '../../Context/AuthContext';
 
 const Summary = () => {
   let user;
@@ -9,7 +9,7 @@ const Summary = () => {
     const auth = useAuth();
     user = auth?.user;
   } catch (error) {
-    console.error("Error using auth context:", error);
+    console.error("Error using auth Context:", error);
     return <div>Error loading user data</div>;
   }
 

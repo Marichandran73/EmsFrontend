@@ -5,8 +5,8 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import AdminDashboard from "./Pages/AdminDashboard";
-import EmployeDashboard from "./Pages/EmployeDashboard";
+import AdminDashboard from "./Pages/AdminDashboard.jsx";
+import EmployeDashboard from "./Pages/EmployeDashboard.jsx";
 import PrivateRoutes from "./Pages/utils/PrivateRoutes";
 import RoleBasedRoute from "./Pages/utils/RoleBasedRoute";
 import AdminSummary from "./components/Dashboard/AdminSummary";

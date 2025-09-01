@@ -5,10 +5,10 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import AdminDashboard from "./Pages/AdminDashboard.jsx";
-import EmployeDashboard from "./Pages/EmployeDashboard.jsx";
-import PrivateRoutes from "./Pages/utils/PrivateRoutes";
-import RoleBasedRoute from "./Pages/utils/RoleBasedRoute";
+import AdminDashboard from "./pages/AdminDashboard.jsx";
+import EmployeDashboard from "./pages/EmployeDashboard.jsx";
+import PrivateRoutes from "./pages/utils/PrivateRoutes";
+import RoleBasedRoute from "./pages/utils/RoleBasedRoute";
 import AdminSummary from "./components/Dashboard/AdminSummary";
 import DepartmentList from "./components/Department/DepartmentList";
 import EmployeeSetting from "./components/EmployeeDashboard/EmployeeSetting";
@@ -21,7 +21,7 @@ import EmployeeEdit from "./components/Employee/EmployeeEdit";
 import AddSalarys from "./components/Salary/AddSalary";
 import SalaryList from "./components/Salary/SalaryList";
 import AdminSetting from './components/Dashboard/AdminSetting';
-import Login from "./Pages/Login";
+import Login from "./pages/Login";
 import "./index.css";
 
 import NewLeave from "./components/Leave/AddLeave";

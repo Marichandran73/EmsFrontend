@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { LeaveButton, AdminLeaveCol } from "../../Pages/utils/LeaveHelpers";
+import { LeaveButton, AdminLeaveCol } from "../../pages/utils/LeaveHelpers";
 import DataTable from "react-data-table-component";
 
 const LeaveTable = () => {

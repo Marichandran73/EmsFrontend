@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import {
   fetchDepartments,
   GetEmployee,
-} from "../../Pages/utils/EmployeeHelper";
+} from "../../pages/utils/EmployeeHelper";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 

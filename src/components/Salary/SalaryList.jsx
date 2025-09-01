@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import DataTable from "react-data-table-component";
-import { getSalaryColumns } from "../../pages/utils/SalaryHelper";
+import { getSalaryColumns } from "../../Pages/utils/SalaryHelper";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
 

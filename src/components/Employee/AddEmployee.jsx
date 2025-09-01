@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { fetchDepartments } from "../../pages/utils/EmployeeHelper";
+import { fetchDepartments } from "../../Pages/utils/EmployeeHelper";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 

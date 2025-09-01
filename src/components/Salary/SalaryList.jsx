@@ -4,7 +4,7 @@ import axios from "axios";
 import DataTable from "react-data-table-component";
 import { getSalaryColumns } from "../../pages/utils/SalaryHelper";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../Context/AuthContext";
+import { useAuth } from "../../context/authContext";
 
 const SalaryList = () => {
   const { id } = useParams();

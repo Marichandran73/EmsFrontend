@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import DataTable from "react-data-table-component";
-import { getEmployeeColumns } from "../../pages/utils/EmployeeHelper";
+import { getEmployeeColumns } from "../../utils/EmployeeHelper";
 
 const EmployeeList = () => {
   const [employees, setEmployees] = useState([]);

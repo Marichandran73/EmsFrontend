@@ -5,7 +5,7 @@ import DataTable from "react-data-table-component";
 import {
   getDepartmentColumns,
   DepartmentButton,
-} from "../../pages/utils/DepartmentHelpers";
+} from "../../utils/DepartmentHelpers";
 
 const DepartmentList = () => {
   const [departments, setDepartments] = useState([]);

@@ -1,7 +1,7 @@
 import React from "react";
 import DataTable from "react-data-table-component";
 import { Link } from "react-router-dom";
-import { leaveColumns } from "../../pages/utils/LeaveHelpers";
+import { leaveColumns } from "../../utils/LeaveHelpers";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useAuth } from '../../context/authContext';

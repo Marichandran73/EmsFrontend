@@ -7,8 +7,8 @@ import {
 } from "react-router-dom";
 import AdminDashboard from "./pages/AdminDashboard.jsx";
 import EmployeDashboard from "./pages/EmployeDashboard.jsx";
-import PrivateRoutes from "./pages/utils/PrivateRoutes";
-import RoleBasedRoute from "./pages/utils/RoleBasedRoute";
+import PrivateRoutes from "./utils/PrivateRoutes";
+import RoleBasedRoute from "./utils/RoleBasedRoute";
 import AdminSummary from "./components/Dashboard/AdminSummary";
 import DepartmentList from "./components/Department/DepartmentList";
 import EmployeeSetting from "./components/EmployeeDashboard/EmployeeSetting";

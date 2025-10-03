@@ -7,27 +7,29 @@ import {
 } from "react-router-dom";
 import AdminDashboard from "./pages/AdminDashboard.jsx";
 import EmployeDashboard from "./pages/EmployeDashboard.jsx";
-import PrivateRoutes from "./utils/PrivateRoutes";
-import RoleBasedRoute from "./utils/RoleBasedRoute";
-import AdminSummary from "./components/Dashboard/AdminSummary";
-import DepartmentList from "./components/Department/DepartmentList";
-import EmployeeSetting from "./components/EmployeeDashboard/EmployeeSetting";
-import AddDepartment from "./components/Department/AddDepartment";
-import EditDepartment from "./components/Department/EditDepartment";
-import EmployeeList from "./components/Employee/EmployeeList";
-import AddEmployee from "./components/Employee/AddEmployee";
-import EmployeeView from "./components/Employee/EmployeeView";
-import EmployeeEdit from "./components/Employee/EmployeeEdit";
-import AddSalarys from "./components/Salary/AddSalary";
-import SalaryList from "./components/Salary/SalaryList";
-import AdminSetting from './components/Dashboard/AdminSetting';
-import Login from "./pages/Login";
+
+import PrivateRoutes from "./utils/PrivateRoutes.jsx";
+
+import RoleBasedRoute from "./utils/RoleBasedRoute.jsx";
+import AdminSummary from "./components/Dashboard/AdminSummary.jsx";
+import DepartmentList from "./components/Department/DepartmentList.jsx";
+import EmployeeSetting from "./components/EmployeeDashboard/EmployeeSetting.jsx";
+import AddDepartment from "./components/Department/AddDepartment.jsx";
+import EditDepartment from "./components/Department/EditDepartment.jsx";
+import EmployeeList from "./components/Employee/EmployeeList.jsx";
+import AddEmployee from "./components/Employee/AddEmployee.jsx";
+import EmployeeView from "./components/Employee/EmployeeView.jsx";
+import EmployeeEdit from "./components/Employee/EmployeeEdit.jsx";
+import AddSalarys from "./components/Salary/AddSalary.jsx";
+import SalaryList from "./components/Salary/SalaryList.jsx";
+import AdminSetting from './components/Dashboard/AdminSetting.jsx';
+import Login from "./pages/Login.jsx";
 import "./index.css";
 
-import NewLeave from "./components/Leave/AddLeave";
-import LeaveList from "./components/Leave/LeaveList";
-import LeaveTable from "./components/Leave/LeaveTable";
-import ViewLeaves from "./components/Leave/ViewLeaves";
+import NewLeave from "./components/Leave/AddLeave.jsx";
+import LeaveList from "./components/Leave/LeaveList.jsx";
+import LeaveTable from "./components/Leave/LeaveTable.jsx";
+import ViewLeaves from "./components/Leave/ViewLeaves.jsx";
 
 function App() {
   return (
